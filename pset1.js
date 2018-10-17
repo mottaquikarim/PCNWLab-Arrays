@@ -7,6 +7,13 @@
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
 
+const longestArr = (arr1, arr2) => {
+    return arr1.length > arr2.length ? arr1 : arr2;
+}
+//test
+console.log('-------longestArr test-------');
+console.log(longestArr([1,2,3,4], ['dog', 'cat']), [1, 2, 3, 4]);
+
 /* 2
     @func arrSwapIndex
     @param {array} arr
