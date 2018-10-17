@@ -24,6 +24,15 @@ console.log(longestArr([1, 2, 3], [1, 2]), 'Expect arr1');
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwapIndex = arr => {
+    const firstElement = arr[0];
+    const lastElement = (arr[arr.length - 1]);
+    arr[0] = lastElement;
+    arr[arr.length - 1] = firstElement
+    return arr;
+}
+
+console.log(arrSwapIndex([1,2,3,4]), 'Expect [4, 3, 2, 1]');
 
 /* 3
     @func arrSwap
