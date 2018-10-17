@@ -72,6 +72,15 @@ console.log(arrSwap([1,2,3,4]));  // [4,2,3,1])
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
 
+const combineArr = (arr1, arr2) => {
+
+    for(let i = 0; i < arr2.length; i++){
+        arr1.push(arr2[i]);
+    }
+    return arr1;
+}
+
+console.log(combineArr([1,2,3,4], ['dog', 'cat']));  // [1, 2, 3, 4, 'dog', 'cat'])
 
 /* 5
     @func getRandomItem
