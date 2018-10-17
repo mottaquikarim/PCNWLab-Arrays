@@ -25,11 +25,9 @@ console.log(longestArr(arr1,arr2))
 const arrSwapIndex = arr => {
     let p0 = arr[0]
     let pLast = arr[arr.length -1]
-    let arr1 = arr
-    arr1[0] = pLast
-    arr1[arr.length -1] = p0
-
-    return arr1
+    arr[0] = pLast
+    arr[arr.length -1] = p0
+    return arr
 }
 let arr = [1,2,3,4]
 console.log(arrSwapIndex(arr))
@@ -44,14 +42,11 @@ console.log(arrSwapIndex(arr))
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 const arrSwap = arr => {
-let arr1 = arr
-let p0 = arr[0];
-let pLast = arr[arr.length - 1];
-arr1.shift();
-arr1.pop();
-arr1.unshift(pLast);
-arr1.push(p0);
-return arr1;
+let p0 = arr.shift();
+let pLast = arr.pop();
+arr.unshift(pLast);
+arr.push(p0);
+return arr;
 }
 console.log(arrSwap([1,2,3,4,5,6]))
 
@@ -83,6 +78,7 @@ function generateRandomNumberFromRange( s, e ) {
 const getRandomItem = arr1 => arr1[generateRandomNumberFromRange(0,(arr1.length -1))]
 let array1 = ['dog','cat','bird','squirrel','rabbit','frog'];
 console.log(getRandomItem(array1))
+
 /* 6
     @func getMiddleItem
     @param {array} arr
@@ -93,10 +89,10 @@ console.log(getRandomItem(array1))
     @example - getMiddleItem([1,2,3,4,5,6,7]);  // 4
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
+
 const getMiddleItem = arr => {
     if (arr.length % 2 === 0) return arr[(arr.length/2) - 1];
-    return arr[Math.floor((arr.length/2)) ] 
- 
+    return arr[Math.floor((arr.length/2))];
     }
 let arrrr = [1,2,3,4,5,6,7,8,9];
 console.log(getMiddleItem(arrrr));
@@ -113,8 +109,8 @@ console.log(getMiddleItem(arrrr));
 */
 
 const getMedianItem = arr => {
-    if (arr.length % 2 === 0) return arr[Math.floor(arr.length/2)-1];
-    return (arr[Math.floor(arr.length/2)] + arr[Math.floor(arr.length/2 -1)]) /2
+    if (arr.length % 2 === 0) return arr[(arr.length/2)-1];
+    return ((arr[Math.floor(arr.length/2)] + arr[Math.floor(arr.length/2 -1)]) /2)
 }
-let arrrr1 = [1,2,3,4,5,6,7,8,9,10,11];
+let arrrr1 = [1,2,3,4,5,6,7,8,9];
 console.log(getMedianItem(arrrr1));
