@@ -75,6 +75,7 @@ console.log('*******************************************************************
 const combineArr = (arr1, arr2) => arr1.concat(arr2);
 
 console.log(combineArr([1, 2], [3, 4]));
+console.log('**********************************************************************************************')
 
 /* 5
     @func getRandomItem
@@ -85,6 +86,10 @@ console.log(combineArr([1, 2], [3, 4]));
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
 
+const getRandomItem = arr1 => arr1[Math.floor(Math.random() * arr1.length)];
+
+console.log(getRandomItem([1, 2, 3, 4, 5]));
+console.log('**********************************************************************************************')
 
 /* 6
     @func getMiddleItem
