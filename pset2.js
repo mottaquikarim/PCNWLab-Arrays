@@ -18,8 +18,20 @@
 
 */
 
+const getRange = function(arr1, min, max) {
+    if (min < arr1.length && max <= arr1.length){
+        const range = arr1.slice(min - 1, max);
+        return range;
+    } else {
+        return "Error: Out of Range"
+    }
+}
 
-
+console.log(getRange([1,2,3,4,5], 1, 3));
+console.log(getRange([1,2,3,4,5], 3, 5));
+console.log(getRange([1,2,3,4,5], 5, 5));
+console.log(getRange([1,2,3,4,5], 3, 100));
+console.log(getRange([1,2,3,4,5], 6, 1));
 
 /* 2
     @func insertIntoMiddle
