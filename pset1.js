@@ -55,6 +55,21 @@ console.log(arrSwapIndex([1,2,3,4]));
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwap = arr => {
+
+    const firstElement = arr[0];
+    const lastElement = arr[arr.length - 1];
+
+arr.shift(); // removing 1st item
+arr.unshift(lastElement); // adding last item to beginning
+arr.pop(); // removing last item
+arr.push(firstElement); // adding 1st item to end
+
+return arr;
+
+}
+
+console.log(arrSwap([1,2,3,4]));
 
 /* 4
     @func combineArr
