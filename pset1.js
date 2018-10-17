@@ -21,6 +21,7 @@ console.log(longestArr(arr1,arr2))
             otherwise return string error
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
+
 const arrSwapIndex = arr => {
     let p0 = arr[0]
     let pLast = arr[arr.length -1]
@@ -92,8 +93,13 @@ console.log(getRandomItem(array1))
     @example - getMiddleItem([1,2,3,4,5,6,7]);  // 4
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
-
-
+const getMiddleItem = arr => {
+    if (arr.length % 2 === 0) return arr[(arr.length/2) - 1];
+    return arr[Math.floor((arr.length/2)) ] 
+ 
+    }
+let arrrr = [1,2,3,4,5,6,7];
+console.log(getMiddleItem(arrrr));
 
 /* 7
     @func getMedianItem
@@ -106,5 +112,9 @@ console.log(getRandomItem(array1))
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 
-
-
+const getMedianItem = arr => {
+    if (arr.length % 2 === 0) return arr[Math.floor(arr.length/2)-1];
+    return (arr[Math.floor(arr.length/2)] + arr[Math.floor(arr.length/2 -1)]) /2
+}
+let arrrr1 = [1,2,3,4,5,6,7,8,9,10,11];
+console.log(getMedianItem(arrrr1));
