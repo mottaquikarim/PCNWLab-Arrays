@@ -138,5 +138,20 @@ console.log(getMiddleItem([1,2,3,4,5,6,7,8,9,10]), 5);
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 
+const getMedianItem = arr => {
+    let middleIndex = arr.length/2 - 1;
+    if (arr.length % 2 === 1){
+        middleIndex = Math.floor(arr.length /2);
+        return arr[middleIndex];
+    }
+    return ( arr[middleIndex] + arr[middleIndex +1] ) /2;
+}
+
+//test
+console.log('-------getMedianItem test-------');
+console.log(getMedianItem([1,2,3,4,5,6,7]), 4);
+console.log(getMedianItem([1,2,3,4,5,6,7,8]), 4.5);
+console.log(getMedianItem([1,2,3,4,5,6,7,8,9]), 5);
+console.log(getMedianItem([1,2,3,4,5,6,7,8,9,10]), 5.5);
 
 
