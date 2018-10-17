@@ -6,7 +6,15 @@
     @desc - given two arrays return the longest array
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
+console.log("--------longestArr----------");
+function longestArr(arr1,arr2){
+    const result = arr1 > arr2 ? arr1 : arr2
+    return result;
+}
+console.log(longestArr([1,2],[1]));
 
+
+console.log("--------arrSwapIndex----------");
 /* 2
     @func arrSwapIndex
     @param {array} arr
@@ -16,6 +24,14 @@
             otherwise return string error
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
+arrSwapIndex = (arr) => {
+    lastElement = arr[arr.length-1]
+    arr[arr.length-1] = arr[0]
+    arr[0] = lastElement
+    return arr
+}
+
+console.log(arrSwapIndex([1,2,3]));
 
 
 /* 3
@@ -28,7 +44,7 @@
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 
-
+console.log("--------combineArr----------");
 /* 4
     @func combineArr
     @param {array} arr1
@@ -38,8 +54,10 @@
             all the items from both arrays 
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
+combineArr = (arr1,arr2) => arr1.concat(arr2)
+console.log(combineArr([1,2,3,4], ['dog', 'cat']));
 
-
+console.log("--------getRandomItem----------");
 /* 5
     @func getRandomItem
     @param {array} arr1
@@ -48,8 +66,13 @@
             item from the array.
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
+getRandomItem = (arr1) => {
+    let ranNum = Math.floor(Math.random() * Math.floor(arr1.length))
+    return arr1[ranNum]
+}
+console.log(getRandomItem([1,2,3,4,5,6,7,8]));
 
-
+console.log("--------getMiddleItem----------");
 /* 6
     @func getMiddleItem
     @param {array} arr
@@ -60,9 +83,14 @@
     @example - getMiddleItem([1,2,3,4,5,6,7]);  // 4
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
+getMiddleItem = (arr) => {
+    let  mid = Math.floor((arr.length - 1) / 2)
+    return arr[mid]
+}
+console.log(getMiddleItem([1,2,3,4,5,6,7]));
 
 
-
+console.log("---------getMedianItem--------");
 /* 7
     @func getMedianItem
     @param {array} arr
@@ -73,6 +101,8 @@
     @example - getMedianItem([1,2,3,4,5,6,7]);  // 4
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
-
+function getMedianItem(arr){
+    
+}
 
 
