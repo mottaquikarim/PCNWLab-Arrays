@@ -24,6 +24,18 @@ console.log(longestArr([1,2,3,4], ['dog', 'cat']), [1, 2, 3, 4]);
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwapIndex = arr => {
+    if (arr.length < 2) return 'string error';
+    const element1 = arr[0];
+    const elementLast = arr[arr.length-1];
+    arr[0] = elementLast;
+    arr[arr.length-1] = element1;
+    return arr;
+}
+//test
+console.log('-------arrSwapIndex test-------');
+console.log(arrSwapIndex(['ha']), 'string error');
+console.log(arrSwapIndex([1,2,3,4]), [4,2,3,1]);
 
 /* 3
     @func arrSwap
