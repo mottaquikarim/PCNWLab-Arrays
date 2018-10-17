@@ -7,7 +7,9 @@
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
 const longestArr = (arr1, arr2) => arr1.length > arr2.length ? arr1 : arr2;
-console.log(longestArr([1,3,4,2,2,4,2],[1,3,4,5,6,6,2,3,4,2]))
+let arr1 = [1,2,3]
+let arr2 = [4,5,6,7]
+console.log(longestArr(arr1,arr2))
 
 
 /* 2
@@ -19,7 +21,17 @@ console.log(longestArr([1,3,4,2,2,4,2],[1,3,4,5,6,6,2,3,4,2]))
             otherwise return string error
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
+const arrSwapIndex = arr => {
+    let p1 = arr[0]
+    let p2 = arr[arr.length -1]
+    let arr1 = arr
+    arr[0] = p2
+    arr1[arr.length -1] = p1
 
+    return arr1
+}
+let arr = [1,2,3,4]
+console.log(arrSwapIndex(arr))
 
 /* 3
     @func arrSwap
