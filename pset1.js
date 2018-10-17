@@ -7,12 +7,13 @@
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
 
-const longestArr = (arr1, arr2) => arr1 > arr2 ? arr1 : arr2;
+const longestArr = (arr1, arr2) => arr1.length > arr2.length ? arr1 : arr2;
 
 console.log(longestArr([1,2,3], [1,2,3,4]), 'Expect return arr2');
 console.log(longestArr(['Jose', 'Rodriguez'], ['Yudy', 'Cabreja', 'Lockhart']), 'Expect arr2');
 console.log(longestArr([1, 2], [1, 3, 6]), 'Expect arr 2');
 console.log(longestArr([1, 2, 3], [1, 2]), 'Expect arr1');
+console.log('**********************************************************************************************')
 
 /* 2
     @func arrSwapIndex
@@ -33,6 +34,7 @@ const arrSwapIndex = arr => {
 }
 
 console.log(arrSwapIndex([1,2,3,4]), 'Expect [4, 3, 2, 1]');
+console.log('**********************************************************************************************')
 
 /* 3
     @func arrSwap
@@ -44,7 +46,18 @@ console.log(arrSwapIndex([1,2,3,4]), 'Expect [4, 3, 2, 1]');
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwap = arr => {
+    const firstElement = arr[0];
+    const lastElement = arr[arr.length - 1];
+    const arrCore = arr.slice(1, arr.length - 1);
+    return arrCore;
+}
 
+console.log(arrSwap([1,2,3,4,5]));
+// console.log(arrSwap());
+// console.log(arrSwap());
+// console.log(arrSwap());
+console.log('**********************************************************************************************')
 /* 4
     @func combineArr
     @param {array} arr1
