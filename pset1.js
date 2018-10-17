@@ -43,8 +43,8 @@ console.log(arrSwapIndex(arr))
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 const arrSwap = arr => {
-let p0 = arr[0];
 let arr1 = arr
+let p0 = arr[0];
 let pLast = arr[arr.length - 1];
 arr1.shift();
 arr1.pop();
@@ -63,6 +63,8 @@ console.log(arrSwap([1,2,3,4,5,6]))
             all the items from both arrays 
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
+const combineArr = (arr1,arr2) => arr1.concat(arr2);
+console.log(combineArr([1,2,3],[4,5,6]))
 
 
 /* 5
