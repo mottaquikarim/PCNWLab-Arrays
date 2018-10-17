@@ -72,6 +72,9 @@ console.log('*******************************************************************
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
 
+const combineArr = (arr1, arr2) => arr1.concat(arr2);
+
+console.log(combineArr([1, 2], [3, 4]));
 
 /* 5
     @func getRandomItem
