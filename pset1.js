@@ -53,6 +53,14 @@ console.log(arrSwapIndex([1,2,3,4]));  // [4,2,3,1]
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwap = (arr) => {
+    let store = arr.shift();
+    arr.unshift(arr.pop());
+    arr.push(store);
+    return arr;
+}
+
+console.log(arrSwap([1,2,3,4]));  // [4,2,3,1])
 
 /* 4
     @func combineArr
