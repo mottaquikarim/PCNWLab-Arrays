@@ -81,6 +81,10 @@ console.log(arrSwap([1,2,3,4]));
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
 
+const combineArr = (arr1, arr2) => {
+   return arr1.concat(arr2);
+}
+
 
 /* 5
     @func getRandomItem
@@ -91,6 +95,10 @@ console.log(arrSwap([1,2,3,4]));
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
 
+const getRandomItem = arr1 => {
+    const randomIndex = Math.floor(Math.random() * arr1.length);
+    return arr1[randomIndex];
+}
 
 /* 6
     @func getMiddleItem
@@ -103,7 +111,18 @@ console.log(arrSwap([1,2,3,4]));
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
 
+const getMiddleItem = arr => {
+   
+    let middleIndex = Math.floor(arr.length / 2); // floor bc you want the 1st middle num
+    if (arr.length % 2 === 0) {
+        middleIndex -= 1;
+    }
 
+    return arr[middleIndex];
+}
+
+console.log(getMiddleItem([1,2,3,4,5,6,7]));
+console.log(getMiddleItem([1,2,3,4,5,6,7,8]));
 
 /* 7
     @func getMedianItem
@@ -116,5 +135,15 @@ console.log(arrSwap([1,2,3,4]));
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 
+const getMedianItem = arr => {
+const middleUp = (arr.length / 2) - 1;
+const middleDown = (arr.length / 2);
 
+if (arr.length % 2 === 0) {
+    return (arr[middleUp] + arr[middleDown]) / 2;
+}
+return arr[Math.ceil(middleUp)];
+}
 
+console.log(getMedianItem([1,2,3,4,5,6,7]));  // 4
+console.log(getMedianItem([1,2,3,4,5,6,7,8]));  // 4.5
