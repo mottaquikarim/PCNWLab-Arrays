@@ -6,6 +6,9 @@
     @desc - given two arrays return the longest array
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
+const longestArr = (arr1, arr2) => arr1.length > arr2.length ? arr1 : arr2;
+console.log(longestArr([1,3,4,2,2,4,2],[1,3,4,5,6,6,2,3,4,2]))
+
 
 /* 2
     @func arrSwapIndex
