@@ -33,8 +33,18 @@ console.log(longestArr( [1, 2, 3, 4], ['dog', 'cat']));
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwapIndex = arr => {
+    const firstElem = arr[0];
+    const lastElem = arr[arr.length - 1]; // how to get the last elem of any A
 
+    arr[0] = lastElem;
+    arr[arr.length - 1] = firstElem; // going back into the first elem
+
+    return arr;
 }
+
+console.log(arrSwapIndex([1,2,3,4])); 
+
 /* 3
     @func arrSwap
     @param {array} arr
