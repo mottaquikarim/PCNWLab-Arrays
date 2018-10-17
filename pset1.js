@@ -47,6 +47,19 @@ console.log(arrSwapIndex([1,2,3,4]), [4,2,3,1]);
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwap = arr => {
+    if (arr.length < 2) return 'string';
+    const lastElement = arr.pop();
+    const element1 = arr.shift();
+    arr.unshift(lastElement);
+    arr.push(element1);
+    return arr;
+}
+
+//test
+console.log('-------arrSwap test-------');
+console.log(arrSwap([1,2,3,4]), [4,2,3,1]);
+console.log(arrSwap(['oh']), 'string');
 
 /* 4
     @func combineArr
