@@ -91,6 +91,12 @@ console.log(combineArr([1,2,3,4], ['dog', 'cat']));  // [1, 2, 3, 4, 'dog', 'cat
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
 
+const getRandomItem = (arr1) => {
+    return arr1[Math.floor(Math.random() * arr1.length)]
+}
+
+console.log(getRandomItem([1,2,3,4,5,6,7,8]));  // 7)
+
 
 /* 6
     @func getMiddleItem
