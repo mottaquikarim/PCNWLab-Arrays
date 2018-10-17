@@ -22,11 +22,11 @@ console.log(longestArr(arr1,arr2))
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 const arrSwapIndex = arr => {
-    let p1 = arr[0]
-    let p2 = arr[arr.length -1]
+    let p0 = arr[0]
+    let pLast = arr[arr.length -1]
     let arr1 = arr
-    arr[0] = p2
-    arr1[arr.length -1] = p1
+    arr[0] = pLast
+    arr1[arr.length -1] = p0
 
     return arr1
 }
@@ -42,7 +42,17 @@ console.log(arrSwapIndex(arr))
             otherwise return string
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
-
+const arrSwap = arr => {
+let p0 = arr[0];
+let arr1 = arr
+let pLast = arr[arr.length - 1];
+arr1.shift();
+arr1.pop();
+arr1.unshift(pLast);
+arr1.push(p0);
+return arr1;
+}
+console.log(arrSwap([1,2,3,4,5,6]))
 
 /* 4
     @func combineArr
