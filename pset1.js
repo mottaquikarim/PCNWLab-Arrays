@@ -109,6 +109,16 @@ console.log(getRandomItem([1,2,3,4,5,6,7,8]));  // 7)
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
 
+const getMiddleItem = (arr) => {
+    console.log (`Array Length: ${arr.length}`)
+    if (arr.length % 2 === 0) {
+        return arr[Math.floor(arr.length/2) - 1];
+    }
+    return arr[Math.floor(arr.length/2)];
+}
+
+console.log(getMiddleItem([1,2,3,4,5,6,7]));  // 4
+console.log(getMiddleItem([1,2,3,4,5,6,7,8]));  // 4
 
 
 /* 7
