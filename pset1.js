@@ -76,17 +76,23 @@ console.log(longestArray([1,2,3,4,5,6], [1,2,3,4,5]))
 
 const arrSwapIndex = array => {
 
-    const nuArray = array
-    const arrayStart = array[0]
-    const arrayEnd = array[array.length -1]
 
-    nuArray[0] = arrayEnd
-    nuArray[nuArray.length -1] = arrayStart
+    if (array.length === 0){
+        return "This array is empty"
+    }
+
+        const nuArray = array
+        const arrayStart = array[0]
+        const arrayEnd = array[array.length -1]
+
+        nuArray[0] = arrayEnd
+        nuArray[nuArray.length -1] = arrayStart
     
-    return nuArray
- }
+        return nuArray
+}
 
- console.log(arrSwapIndex(["1", "2", "3", "4"]))
+ console.log(arrSwapIndex([1, 2, 3, 4]))
+ console.log(arrSwapIndex([]))
 
 /* 3
     @func arrSwap
