@@ -28,6 +28,20 @@ const longestArr = (arr1, arr2) => {
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwapIndex = (arr) => {
+
+    let store = arr[0];
+
+    let originalLength = arr.length-1;
+
+    arr[0] = arr[arr.length-1];
+
+    arr[originalLength] = store;
+
+    return arr;
+}
+
+console.log(arrSwapIndex([1,2,3,4]));  // [4,2,3,1]
 
 /* 3
     @func arrSwap
