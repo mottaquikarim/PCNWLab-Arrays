@@ -26,6 +26,7 @@ console.log('*******************************************************************
 */
 
 const arrSwapIndex = arr => {
+    if(arr.length === 0) return 'This array is empty';
     const firstElement = arr[0];
     const lastElement = (arr[arr.length - 1]);
     arr[0] = lastElement;
