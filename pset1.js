@@ -25,9 +25,12 @@ console.log("--------arrSwapIndex----------");
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 arrSwapIndex = (arr) => {
-    lastElement = arr[arr.length-1]
-    arr[arr.length-1] = arr[0]
-    arr[0] = lastElement
+    const firstItem = arr[0]
+    const lastElement = arr[arr.length-1]
+    arr.shift()
+    arr.unshift(lastElement)
+    arr.pop()
+    arr.push(firstItem)
     return arr
 }
 
@@ -102,7 +105,16 @@ console.log("---------getMedianItem--------");
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 function getMedianItem(arr){
-    
+    const middleR = Math.ceil((arr.length-1)/2)
+    const middleL = Math.floor((arr.length-1)/2)
+
+    if(arr.length % 2 === 0){
+        return (arr[middleL] + arr[middleR]) / 2
+    }
+
+    return arr[Math.ceil((arr.length -1) /2)]
 }
+
+console.log(getMedianItem([1,2,3,4,5,6,7,8]));
 
 
