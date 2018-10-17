@@ -25,7 +25,7 @@ const arrSwapIndex = arr => {
     let p0 = arr[0]
     let pLast = arr[arr.length -1]
     let arr1 = arr
-    arr[0] = pLast
+    arr1[0] = pLast
     arr1[arr.length -1] = p0
 
     return arr1
@@ -75,8 +75,13 @@ console.log(combineArr([1,2,3],[4,5,6]))
             item from the array.
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
-
-
+function generateRandomNumberFromRange( s, e ) {
+    const random = s + Math.floor( Math.random() * (e-s+1) );
+    return random;
+}
+const getRandomItem = arr1 => arr1[generateRandomNumberFromRange(0,(arr1.length -1))]
+let array1 = ['dog','cat','bird','squirrel','rabbit','frog'];
+console.log(getRandomItem(array1))
 /* 6
     @func getMiddleItem
     @param {array} arr
