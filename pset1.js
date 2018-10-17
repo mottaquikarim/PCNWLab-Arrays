@@ -7,6 +7,13 @@
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
 
+const longestArr = (arr1, arr2) => {
+    return arr1.length > arr2.length ? arr1 : arr2;
+}
+//test
+console.log('-------longestArr test-------');
+console.log(longestArr([1,2,3,4], ['dog', 'cat']), [1, 2, 3, 4]);
+
 /* 2
     @func arrSwapIndex
     @param {array} arr
@@ -17,6 +24,18 @@
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwapIndex = arr => {
+    if (arr.length < 2) return 'string error';
+    const element1 = arr[0];
+    const elementLast = arr[arr.length-1];
+    arr[0] = elementLast;
+    arr[arr.length-1] = element1;
+    return arr;
+}
+//test
+console.log('-------arrSwapIndex test-------');
+console.log(arrSwapIndex(['ha']), 'string error');
+console.log(arrSwapIndex([1,2,3,4]), [4,2,3,1]);
 
 /* 3
     @func arrSwap
@@ -28,6 +47,19 @@
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwap = arr => {
+    if (arr.length < 2) return 'string';
+    const lastElement = arr.pop();
+    const element1 = arr.shift();
+    arr.unshift(lastElement);
+    arr.push(element1);
+    return arr;
+}
+
+//test
+console.log('-------arrSwap test-------');
+console.log(arrSwap([1,2,3,4]), [4,2,3,1]);
+console.log(arrSwap(['oh']), 'string');
 
 /* 4
     @func combineArr
@@ -39,6 +71,13 @@
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
 
+const combineArr = (arr1, arr2) => {
+    return arr1.concat(arr2);
+}
+
+//test
+console.log('-------combineArr test-------');
+console.log(combineArr([1,2,3,4],['dog', 'cat']), [1, 2, 3, 4, 'dog', 'cat']);
 
 /* 5
     @func getRandomItem
@@ -49,6 +88,17 @@
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
 
+const getRandomItem = arr1 => {
+    let randomIndex = Math.floor(Math.random() * arr1.length);
+    return arr1[randomIndex];
+}
+//test
+console.log('-------getRandomItem test-------');
+console.log(getRandomItem([1,2,3,4,5,6,7,8]), 'random # from 1 to 8');
+console.log(getRandomItem([1,2,3,4,5,6,7,8]), 'random # from 1 to 8');
+console.log(getRandomItem([1,2,3,4,5,6,7,8]), 'random # from 1 to 8');
+console.log(getRandomItem([1,2,3,4,5,6,7,8]), 'random # from 1 to 8');
+console.log(getRandomItem([1,2,3,4,5,6,7,8]), 'random # from 1 to 8');
 
 /* 6
     @func getMiddleItem
@@ -61,7 +111,21 @@
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
 
-
+const getMiddleItem = arr => {
+    let middleIndex = 0;
+    if (arr.length % 2 === 0){
+        middleIndex = Math.floor(arr.length /2) - 1;
+    } else {
+        middleIndex = Math.floor(arr.length /2);
+    }
+    return arr[middleIndex];
+}
+//test
+console.log('-------getMiddleItem test-------');
+console.log(getMiddleItem([1,2,3,4,5,6,7]), 4);
+console.log(getMiddleItem([1,2,3,4,5,6,7,8]), 4);
+console.log(getMiddleItem([1,2,3,4,5,6,7,8,9]), 5);
+console.log(getMiddleItem([1,2,3,4,5,6,7,8,9,10]), 5);
 
 /* 7
     @func getMedianItem
@@ -74,5 +138,20 @@
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 
+const getMedianItem = arr => {
+    let middleIndex = arr.length/2 - 1;
+    if (arr.length % 2 === 1){
+        middleIndex = Math.floor(arr.length /2);
+        return arr[middleIndex];
+    }
+    return ( arr[middleIndex] + arr[middleIndex +1] ) /2;
+}
+
+//test
+console.log('-------getMedianItem test-------');
+console.log(getMedianItem([1,2,3,4,5,6,7]), 4);
+console.log(getMedianItem([1,2,3,4,5,6,7,8]), 4.5);
+console.log(getMedianItem([1,2,3,4,5,6,7,8,9]), 5);
+console.log(getMedianItem([1,2,3,4,5,6,7,8,9,10]), 5.5);
 
 
