@@ -38,9 +38,9 @@ const compareArrays = (arrayOne, arrayTwo) => {
     return comparison
 }
 
-console.log(compareArrays([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]))
-console.log(compareArrays([1, 2, 3, 4, 4], [1, 2, 3, 4, 5]))
-console.log(compareArrays([1, 2, 3, 4], [1, 2, 3, 4, 5]))
+console.log(compareArrays([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]) === true)
+console.log(compareArrays([1, 2, 3, 4, 4], [1, 2, 3, 4, 5]) === false)
+console.log(compareArrays([1, 2, 3, 4], [1, 2, 3, 4, 5]) === false)
 
 //End of Helper Function
 
@@ -196,17 +196,15 @@ console.log(getMiddleItem([1,2,3,4,5,6,7,8]))
 
 const getMedianItem = array => {
 
-    const nuArray = array.sort()
-    const middleUp = Math.ceil(nuArray.length / 2)
-    const middleDown = Math.floor(nuArray.length / 2)
-
-    
-    if(nuArray.length % 2 !== 0){
-      return ((nuArray[middleUp]) + nuArray[middleDown]) / 2
+const middleIndex = Math.floor(array.length / 2);
+      
+    if (array.length % 2 !== 0) {
+        return array[middleIndex];
     }
-
-    return nuArray[middleDown]
+        
+    return (array[middleIndex - 1] + array[middleIndex]) / 2;
 
 }
-console.log(getMedianItem([1,2,3,4,5,6,7]))
-console.log(getMedianItem([1,2,3,4,5,6,7,8]))
+
+console.log(getMedianItem([1,2,3,4,5,6,7])) // 4
+console.log(getMedianItem([1,2,3,4,5,6,7,8])) // 4.5
