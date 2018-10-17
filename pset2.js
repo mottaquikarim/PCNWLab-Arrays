@@ -24,12 +24,12 @@ const getRange = (arr1, min, max) => {
         return arr1.slice(min-1,max);
     }
 }
-console.log("\n---getRange---")//New line for organization
+console.log("---getRange---")//New line for organization
 console.log("[1,2,3,4,5] Range of 1 to 3: " + getRange([1,2,3,4,5], 1, 3));
-console.log("[1,2,3,4,5] Range of 1 to 3: " + getRange([1,2,3,4,5], 3, 5));
-console.log("[1,2,3,4,5] Range of 1 to 3: " + getRange([1,2,3,4,5], 5, 5));
-console.log("[1,2,3,4,5] Range of 1 to 3: " + getRange([1,2,3,4,5], 3, 100));
-console.log("[1,2,3,4,5] Range of 1 to 3: " + getRange([1,2,3,4,5], 6, 1));
+console.log("[1,2,3,4,5] Range of 3 to 5: " + getRange([1,2,3,4,5], 3, 5));
+console.log("[1,2,3,4,5] Range of 5 to 5: " + getRange([1,2,3,4,5], 5, 5));
+console.log("[1,2,3,4,5] Range of 3 to 100: " + getRange([1,2,3,4,5], 3, 100));
+console.log("[1,2,3,4,5] Range of 6 to 100: " + getRange([1,2,3,4,5], 6, 1));
 /* 2
     @func insertIntoMiddle
     @param {array} arr1
