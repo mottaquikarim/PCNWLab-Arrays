@@ -50,8 +50,11 @@ console.log('*******************************************************************
 const arrSwap = arr => {
     const firstElement = arr[0];
     const lastElement = arr[arr.length - 1];
-    const arrCore = arr.slice(1, arr.length - 1);
-    return arrCore;
+    arr.shift();
+    arr.unshift(lastElement);
+    arr.pop();
+    arr.push(firstElement);
+    return arr;
 }
 
 console.log(arrSwap([1,2,3,4,5]));
