@@ -71,6 +71,13 @@ console.log(arrSwap(['oh']), 'string');
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
 
+const combineArr = (arr1, arr2) => {
+    return arr1.concat(arr2);
+}
+
+//test
+console.log('-------combineArr test-------');
+console.log(combineArr([1,2,3,4],['dog', 'cat']), [1, 2, 3, 4, 'dog', 'cat']);
 
 /* 5
     @func getRandomItem
