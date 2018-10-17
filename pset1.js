@@ -111,7 +111,21 @@ console.log(getRandomItem([1,2,3,4,5,6,7,8]), 'random # from 1 to 8');
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
 
-
+const getMiddleItem = arr => {
+    let middleIndex = 0;
+    if (arr.length % 2 === 0){
+        middleIndex = Math.floor(arr.length /2) - 1;
+    } else {
+        middleIndex = Math.floor(arr.length /2);
+    }
+    return arr[middleIndex];
+}
+//test
+console.log('-------getMiddleItem test-------');
+console.log(getMiddleItem([1,2,3,4,5,6,7]), 4);
+console.log(getMiddleItem([1,2,3,4,5,6,7,8]), 4);
+console.log(getMiddleItem([1,2,3,4,5,6,7,8,9]), 5);
+console.log(getMiddleItem([1,2,3,4,5,6,7,8,9,10]), 5);
 
 /* 7
     @func getMedianItem
