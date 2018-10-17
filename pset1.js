@@ -102,7 +102,15 @@ console.log('*******************************************************************
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
 
+const getMiddleItem = arr => {
+    if(arr.length % 2 === 0) return arr[arr.length / 2 - 1];
+    return arr[Math.floor(arr.length / 2)];
+}
 
+console.log(getMiddleItem([1,2,3,4,5,6,7]));  // 4
+console.log(getMiddleItem([1,2,3,4,5,6,7,8]));  // 4
+console.log(getMiddleItem([1,2,3,4]));
+console.log('**********************************************************************************************')
 
 /* 7
     @func getMedianItem
