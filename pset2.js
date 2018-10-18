@@ -43,7 +43,7 @@ console.log(getRange([1,2,3,4,5], 6, 1));
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
 const insertIntoMiddle = (arr1,arr2) => {
-   let firstArr = arr1.slice(0,Math.floor(arr1.length/2));
+   let firstArr = arr1.slice(0,Math.ceil(arr1.length/2));
    let secondArr = arr2.slice(0,Math.ceil(arr2.length/2));
    let combineArr1 = firstArr.concat(arr2);
    let combineArr2 = combineArr1.concat(secondArr)
@@ -70,6 +70,15 @@ const reverseArr = str => {
 }
 console.log(reverseArr([1,2,3,4,5]));
 
+
+
+const reverseArr1 = str => {
+   return  str.sort(function(a, b) {
+    return b - a;
+  });
+   
+}
+console.log(reverseArr1([1,2,3,4,5]));
 /* 4
     @func reversedRangeMasher
     @param {array} arr1
@@ -86,6 +95,12 @@ console.log(reverseArr([1,2,3,4,5]));
     @example - reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5);  // [1, 2, 3, 'dlrow', 'olleh', 4, 5]
 
 */
+const reversedRangeMasher = (arr1,arr2,min,max) => {
+        const firstArray = arr1.slice(0,Math.ceil(arr1.length/2));
+        const secondArray = arr2.reverse();
+        const firstReversed = firstArray.reverse([0]);
 
-
+        return ` ${firstArray} ${secondArray} ${firstReversed}`;
+   }
+console.log(reversedRangeMasher([1,2,3,4,5], ['cat', 'dog'], 3, 5));
 
