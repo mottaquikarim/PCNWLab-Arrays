@@ -46,8 +46,19 @@ console.log(getRange([0,2,3,10,8], 1, 5), [0,2,3,10,8]);
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
 
-
-
+const insertIntoMiddle = (arr1, arr2) => {
+    if (!Array.isArray(arr1) || !Array.isArray(arr2)) return 'invalid input';
+    const midIndex = Math.ceil(arr1.length /2);
+    const half1 = arr1.slice(0, midIndex);
+    const half2 = arr1.slice(midIndex);
+    return half1.concat(arr2).concat(half2);
+}
+//test
+console.log('------------insertIntoMiddle test------------');
+console.log('if arr1 or arr2 is missing => return invalid input', insertIntoMiddle([1,2]) === 'invalid input');
+console.log('if arr1 or arr2 is missing => return invalid input', insertIntoMiddle('wtf TDD', [0]) === 'invalid input');
+console.log(insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']), [1, 2, 3, 'cat', 'dog', 4, 5]);
+console.log(insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']), [1, 2, 3, 'cat', 'dog', 4, 5, 6]);
 
 /* 3
     @func reverseArr
