@@ -18,9 +18,18 @@
 
 */
 
+const getRange = (arr1,min,max) => {
+   if (min == max || min > max || max > arr1.length ){
+       return "Error: Out of Range"; 
+   }
+       return arr1.slice(min-1,max);  
+}
 
-
-
+console.log(getRange([1,2,3,4,5], 1, 3));
+console.log(getRange([1,2,3,4,5], 3, 5));
+console.log(getRange([1,2,3,4,5], 5, 5));
+console.log(getRange([1,2,3,4,5], 3, 100));
+console.log(getRange([1,2,3,4,5], 6, 1));
 /* 2
     @func insertIntoMiddle
     @param {array} arr1
@@ -33,8 +42,14 @@
     @example - insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5]
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
-
-
+const insertIntoMiddle = (arr1,arr2) => {
+   let firstArr = arr1.slice(0,Math.floor(arr1.length/2));
+   let secondArr = arr2.slice(0,Math.ceil(arr2.length/2));
+   let combineArr1 = firstArr.concat(arr2);
+   let combineArr2 = combineArr1.concat(secondArr)
+   return combineArr2
+}
+console.log(insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']));
 
 
 /* 3
@@ -49,8 +64,11 @@
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
 
+const reverseArr = str => {
+    return str.reverse();
 
-
+}
+console.log(reverseArr([1,2,3,4,5]));
 
 /* 4
     @func reversedRangeMasher

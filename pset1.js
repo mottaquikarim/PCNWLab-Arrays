@@ -26,16 +26,19 @@
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 const arrSwapIndex = arr => {
-   const firstItem = arr[0]; 
-   const lastItem = arr[arr.length -1]; 
-
-   arr[0] = lastItem; 
-   arr[arr.length -1] = firstItem;
-
-   return arr; 
+    if (arr.length > 2){
+        return "string error"; 
+    }
+     let first = arr[0]
+     let second = arr[arr.length - 1];
+   
+    // console.log(second);
+     arr[arr.length -1] = first
+     second = arr[0] = second
+     return arr; 
 }
-
-console.log(arrSwapIndex([1,2,3,4])); 
+console.log(arrSwapIndex([1,2,3,4]));
+console.log(arrSwapIndex['hello']); 
 
 /* 3
     @func arrSwap
@@ -59,6 +62,8 @@ console.log(arrSwapIndex([1,2,3,4]));
 
  }
  console.log(arrSwap([1,2,3,4]));
+
+ 
 /* 4
     @func combineArr
     @param {array} arr1
@@ -115,4 +120,10 @@ console.log(getMiddleItem([1,2,3,4,5,6,7]));
 */
 
 
+const getMedianItem = arr => {
+    return arr[Math.ceil * arr1.length / 2 ]; 
 
+
+}
+console.log(getMedianItem([1,2,3,4,5,6,7]));
+console.log(getMedianItem([1,2,3,4,5,6,7,8]))
