@@ -28,6 +28,7 @@ console.log('getRange([1,2,3,4,5], 3, 5) should return [3,4,5]; ', getRange([1,2
 console.log('getRange([1,2,3,4,5], 5, 5]);  // Error: Out of Range; ', getRange([1,2,3,4,5], 5, 5) === 'Error: Out of Range');
 console.log('getRange([1,2,3,4,5], 3, 100]);  // Error: Out of Range; ', getRange([1,2,3,4,5], 3, 100) === 'Error: Out of Range');
 console.log('getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range; ', getRange([1,2,3,4,5], 6, 1) === 'Error: Out of Range');
+console.log('*******************************************************************')
 
 /* 2
     @func insertIntoMiddle
@@ -42,8 +43,23 @@ console.log('getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range; ', getRange(
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
 
+const insertIntoMiddle = (arr1, arr2) => {
+    let  firstHalfArr = arr1.slice(0, Math.ceil((arr1.length / 2)));
+    let secondHalfArr = arr1.slice(arr1.length / 2, arr1.length);
+    if(arr1.length % 2 !== 0){
+        secondHalfArr = arr1.slice(Math.floor((arr1.length / 2) + 1), arr1.length);
+        return firstHalfArr.concat(arr2).concat(secondHalfArr);
+    }
+    
+    return firstHalfArr.concat(arr2).concat(secondHalfArr);
+}
 
-
+console.log(`insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']);  
+// [1, 2, 3, 'cat', 'dog, 4, 5]; `, insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']));
+console.log(`insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  
+// [1, 2, 3, 'cat', 'dog, 4, 5, 6]; `, insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']));
+console.log('insertIntoMiddle returns an array, ', Array.isArray(insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog'])));
+console.log('*******************************************************************')
 
 /* 3
     @func reverseArr
@@ -57,7 +73,13 @@ console.log('getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range; ', getRange(
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
 
+const reverseArr = arr => {
+    return [];
+}
 
+console.log('reverseArr returns an array, ', Array.isArray(reverseArr()));
+// console.log(reverseArr());
+// console.log(reverseArr());
 
 
 /* 4
