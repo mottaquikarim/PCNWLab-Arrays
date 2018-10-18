@@ -18,8 +18,20 @@
 
 */
 
+const getRange = function(arr1, min, max) {
+    if (min < arr1.length && max <= arr1.length){
+        const range = arr1.slice(min - 1, max);
+        return range;
+    } else {
+        return "Error: Out of Range"
+    }
+}
 
-
+console.log(getRange([1,2,3,4,5], 1, 3));
+console.log(getRange([1,2,3,4,5], 3, 5));
+console.log(getRange([1,2,3,4,5], 5, 5));
+console.log(getRange([1,2,3,4,5], 3, 100));
+console.log(getRange([1,2,3,4,5], 6, 1));
 
 /* 2
     @func insertIntoMiddle
@@ -34,7 +46,21 @@
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
 
+const insertIntoMiddle = function(arr1, arr2) {
+    const halfLen = (arr1.length / 2);
+    const halftoCeil = Math.ceil(halfLen);
 
+    if (arr1.length % 2 === 0) {
+        arr1.splice(halfLen, 0, arr2);
+        return arr1;
+    } else {
+        arr1.splice(halftoCeil, 0, arr2);
+        return arr1
+    }
+}
+
+console.log(insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']));
+console.log(insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']));
 
 
 /* 3
@@ -49,8 +75,32 @@
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
 
+// const reverseArr = function(arr) {
+//     let arr2 = [];
+//     if (arr[arr.length - 1] !== arr2[0]) {
+//         arr2 = arr.unshift(arr.pop());
+//         reverseArr(arr2);
+//     } else {
+//         return arr2;
+//     }
+// }
 
+// const reverseArr = function(arr) {
+//     arr.unshift(arr.pop())
+//     return reverseArr(arr)
 
+// }
+
+// console.log(reverseArr([1,2,3,4,5]));
+
+const reverseArr = (arr, arr2 = []) => {
+    if (arr.length === 0) return arr2
+    let poppedVal = arr.pop();
+    arr2.push(poppedVal);
+    return reverseArr(arr, arr2);
+}
+
+console.log(reverseArr([1,2,3,4,5]));
 
 /* 4
     @func reversedRangeMasher
@@ -69,5 +119,11 @@
 
 */
 
+const reversedRangeMasher = function(arr1, arr2, min, max) {
+    let arr2_reversed = reverseArr(arr2);
+    let arr1_range = getRange(arr1, min, max)
+    return insertIntoMiddle(arr1_range, arr2_reversed)
+}
 
-
+console.log(reversedRangeMasher([1,2,3,4,5], ['cat', 'dog'], 3, 5));
+console.log(reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5));
