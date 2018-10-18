@@ -18,8 +18,20 @@
 
 */
 
-
-
+const getRange = (arr1, min, max) => {
+    if (max > arr1.length || min > arr1.length) return 'Error: Out of Range';
+    if (min > max) return 'Error: Out of Range';
+    if (min === max) return 'Error: Out of Range';
+    return arr1.slice(min-1, max);
+}
+//test
+console.log('------------getRange test------------');
+console.log(getRange([1,2,3,4,5], 1, 3), [1, 2, 3]);
+console.log(getRange([1,2,3,4,5], 3, 5), [3, 4, 5]);
+console.log(getRange([1,2,3,4,5], 5, 5), 'Error: Out of Range');
+console.log(getRange([1,2,3,4,5], 3, 100), 'Error: Out of Range');
+console.log(getRange([1,2,3,4,5], 6, 1), 'Error: Out of Range');
+console.log(getRange([0,2,3,10,8], 1, 5), [0,2,3,10,8]);
 
 /* 2
     @func insertIntoMiddle
