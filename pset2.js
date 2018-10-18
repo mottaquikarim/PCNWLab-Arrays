@@ -46,7 +46,21 @@ console.log(getRange([1,2,3,4,5], 6, 1));
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
 
+const insertIntoMiddle = function(arr1, arr2) {
+    const halfLen = (arr1.length / 2);
+    const halftoCeil = Math.ceil(halfLen);
 
+    if (arr1.length % 2 === 0) {
+        arr1.splice(halfLen, 0, arr2);
+        return arr1;
+    } else {
+        arr1.splice(halftoCeil, 0, arr2);
+        return arr1
+    }
+}
+
+console.log(insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']));
+console.log(insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']));
 
 
 /* 3
