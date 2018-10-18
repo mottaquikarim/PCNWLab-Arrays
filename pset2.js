@@ -73,13 +73,19 @@ console.log('*******************************************************************
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
 
-const reverseArr = arr => {
-    return [];
+const movingIdx = toBeReversed => {
+    if(!toBeReversed.length) return toBeReversed;
+    return movingIdx(toBeReversed.slice(1)).concat(toBeReversed[0]);
 }
 
-console.log('reverseArr returns an array, ', Array.isArray(reverseArr()));
-// console.log(reverseArr());
-// console.log(reverseArr());
+const reverseArr = arr => {
+    return movingIdx(arr);
+}
+
+console.log(`reverseArr([1,2,3,4,5]) returns [5,4,3,2,1]): `, reverseArr([1,2,3,4,5]));
+console.log(`reverseArr([11, 12, 13, 14, 15, 16]) 
+returns [16, 15, 14, 13, 12, 11]: `, reverseArr([11, 12, 13, 14, 15, 16]));
+console.log('reverseArr returns an array, ', Array.isArray(reverseArr([1,2,3,4,5])));
 
 
 /* 4
