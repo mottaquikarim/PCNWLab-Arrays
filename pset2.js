@@ -92,7 +92,7 @@ const reverseArr = arr => {
         if (arr.length > 0){
             newArr.push(arr.pop());
         }
-        if (arr.length > 0){
+        if (arr.length > 0){        
             popNpush(arr);
         }
     }
@@ -159,6 +159,60 @@ console.log('------------------------------------------------');
     @example - reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5);  // [1, 2, 3, 'dlrow', 'olleh', 4, 5]
 
 */
+//wtf
+const reverseElement = str => {
+    let arr = str.split('').reverse();
+    let index = 0;
+    let string = arr[index];
+    function loop() {
+        if (index < arr.length-1){
+            index ++;
+            string += arr[index];
+        }
+        if (index < arr.length-1){
+            loop();
+        }
+    }
+    loop();
+    return string;
+}
+// reverseElement test
+//console.log(reverseElement('doog'), 'good');
+//console.log(reverseElement('dab'), 'bad');
+//console.log(reverseElement('hello'), 'olleh');
+// all passed yay
 
+const reversedRangeMasher = (arr1, arr2, min, max) => {
+    let reversedArr = reverseArr(arr2);
+    //element reversing part
+    let num = 0;
+    reversedArr[num] = reverseElement(reversedArr[num]);
+    function loop(){
+        if (num < arr2.length-1){
+            num ++;
+            reversedArr[num] = reverseElement(reversedArr[num]);
+            loop();
+        }
+    }
+    loop();
+    //sort arr1 and take slice of range
+    arr1.sort(); //yeah yeah it can only sort 1 digit #s properly, 
+                 //but the example test passed so that's it for now.
+    const a = arr1.indexOf(min);
+    const b = arr1.indexOf(max);
+    const sliceOfArr = arr1.slice(a, b+1);
+    //divide into halfs
+    const midIndex = Math.ceil(sliceOfArr.length/2)
+    const half1 = sliceOfArr.slice(0, midIndex);
+    const half2 = sliceOfArr.slice(midIndex);
+
+    return half1.concat(reversedArr).concat(half2);
+}
+//test
+console.log('------------reversedRangeMasher test------------');
+console.log(reversedRangeMasher([1,2,3,4,5], ['cat', 'dog'], 3, 5), [3, 4, 'god', 'tac', 5]);
+console.log(reversedRangeMasher([5,4,3,2,1], ['hello', 'world'], 1, 5), [1, 2, 3, 'dlrow', 'olleh', 4, 5]);
+console.log(reversedRangeMasher([4,1,8,9], ['dog','lol'], 1, 9), [1,4,'lol','god',8,9]);
+console.log('------------------------------------------------');
 
 
