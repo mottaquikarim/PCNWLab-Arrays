@@ -6,6 +6,9 @@
     @desc - given two arrays return the longest array
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
+const longestArr = (arr1,arr2) => arr1.length < arr2.length ? arr2 : arr1 
+
+console.log(longestArr([1,2,3,4], ['dog', 'cat']))
 
 /* 2
     @func arrSwapIndex
@@ -16,8 +19,14 @@
             otherwise return string error
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
+const arrSwapIndex = (arr) => {
+    let holder = arr[0]
+    arr[0] = arr[arr.length-1]
+    arr[arr.length-1] = holder
+    return arr
 
-
+}
+console.log(arrSwapIndex([1,2,3,4]))
 /* 3
     @func arrSwap
     @param {array} arr
@@ -27,7 +36,16 @@
             otherwise return string
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
+const arrSwap = (arr) => {
+    let holder = arr.shift()
+    arr.unshift(arr.pop())
+    arr.push(holder)
+    return arr
 
+
+}
+
+console.log(arrSwap([1,2,3,4]))
 
 /* 4
     @func combineArr
@@ -38,7 +56,10 @@
             all the items from both arrays 
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
+const combineArr = (arr1,arr2) => arr1.concat(arr2)
 
+
+console.log(combineArr([1,2,3,4], ['dog', 'cat']))
 
 /* 5
     @func getRandomItem
@@ -48,8 +69,10 @@
             item from the array.
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
+const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)]
 
 
+console.log(getRandomItem([1,2,3,4,5,6,7,8]))
 /* 6
     @func getMiddleItem
     @param {array} arr
@@ -60,7 +83,12 @@
     @example - getMiddleItem([1,2,3,4,5,6,7]);  // 4
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
+const getMiddleItem = (arr) => {
+    return arr[Math.ceil(arr.length/2)-1]
+}
 
+console.log(getMiddleItem([1,2,3,4,5,6,7]))
+console.log(getMiddleItem([1,2,3,4,5,6,7,8]))
 
 
 /* 7
@@ -74,5 +102,11 @@
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 
+const getMedianItem = (arr) => {
+    if((arr.length%2) === 0){
+        return (arr[(arr.length/2)-1]+arr[(arr.length/2)])/2
+    }return getMiddleItem(arr)
+}
 
-
+console.log(getMedianItem([1,2,3,4,5,6,7]))
+console.log(getMedianItem([1,2,3,4,5,6,7,8]))
