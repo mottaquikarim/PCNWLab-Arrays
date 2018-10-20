@@ -79,8 +79,13 @@ function reverseArr(arr, arr2=[]){
         return reverseArr(arr, arr2)
 }
 
+function reverseArr2(arr){
+    arr.map((current,index) => (arr.length - 1 - index))
+}
+
 
 console.log(reverseArr([1,2,3,4,5]))
+console.log(reverseArr([7,8,9,10]))
 
 /* 4
     @func reversedRangeMasher
@@ -99,39 +104,34 @@ console.log(reverseArr([1,2,3,4,5]))
 
 */
 function reversedRangeMasher(arr1,arr2,min,max){
+        //given an array and a range, return all the 
+        //elements in the array that fall within the range.
+    arr1 = getRange(arr1,min,max)
+    
+        //slice the arr1 from middle into arrays
     let array1Sliced = arr1.slice(0,(arr1.length-1)/2)
     let array1Sliced2 = arr1.slice((arr1.length-1)/2)
-    let a = array1Sliced.concat(reversePopper(arr2))
+
+        //Reverse arr2 using MAP
+    arr2Reversed = arr2.map((current,index) => arr2[arr2.length - 1 - index])
+
+        //Reverse arr2 using MAP
+        //Convert each string in arr2 into individual arrays using split
+        //Use reverse method on string array to reverse
+        //its ok to use reverse method on string array I think
+        //use join to change string array back to string.
+    arr2Backwards = arr2Reversed.map((current,index) => arr2Reversed[index].split("").reverse().join(""))
+    
+    //combine first part of arr1 with arr2Backwards
+    let a = array1Sliced.concat(arr2Backwards)
+
+    //combine arr1Sliced + arr2Backwards + arr1Sliced2.
     let b = a.concat(array1Sliced2)
     return b
     
 }
 
-function reversePopper(arr, arr2=[]){
-    if(arr.length === 0) return arr2
-        let hold = arr.pop()
-        arr2.push(reverseString(hold))
-        return reversePopper(arr, arr2)
-}
-
-function reverseString(str) {
-    // Step 1. Use the split() method to return a new array
-    let splitString = str.split(""); 
-    // ["h", "e", "l", "l", "o"]
- 
-    // Step 2. Use the reverse() method to reverse the new created array
-    let reverseArray = splitString.reverse(); 
-    // ["o", "l", "l", "e", "h"]
- 
-    // Step 3. Use the join() method to join all elements of the array into a string
-    let joinArray = reverseArray.join(""); 
-    // "olleh"
-    
-    //Step 4. Return the reversed string
-    return joinArray; // "olleh"
-}
- 
-console.log(reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5));
+console.log(reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 3, 5));
 
 
 
