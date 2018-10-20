@@ -60,8 +60,8 @@ console.log(insertIntoMiddle([1,2,3,4,5,6,7,8,9],['dog','cat','bird']))
 
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
-
-
+const reverseArr = arr => arr.map((current, index, arr) => arr[arr.length - 1 - index])
+ console.log(reverseArr([1, 2, 3, 4, 5])); 
 
 
 /* 4
