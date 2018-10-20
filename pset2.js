@@ -17,15 +17,8 @@
     @example - getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range
 
 */
-const getRange = (arr, min,max) => {
-   // console.log('gerRange runs')
-    if (arr.lastIndexOf(min)>=0 && arr.lastIndexOf(max)>=0 && (arr.lastIndexOf(max)-arr.lastIndexOf(min)) === (max-min) && max>min ){
-      // console.log('if works')
-        return arr.slice(arr[arr.lastIndexOf(min)-1],arr[arr.lastIndexOf(max)])
-    }
-    return "Error: Out of Range"
+const getRange = (arr, min,max) => arr.lastIndexOf(min)>=0 && arr.lastIndexOf(max)>=0 && (arr.lastIndexOf(max)-arr.lastIndexOf(min)) === (max-min) && max>min ? arr.sort().slice(arr[arr.lastIndexOf(min)-1],arr[arr.lastIndexOf(max)]):"Error: Out of Range"
         
-}
 
 console.log(getRange([1,2,3,4,5], 1, 3))
 console.log(getRange([1,2,3,4,5], 3, 5))

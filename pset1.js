@@ -101,6 +101,7 @@ console.log(getMiddleItem([1,2,3,4,5,6,7,8]))
     @example - getMedianItem([1,2,3,4,5,6,7]);  // 4
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
+
 const getMedianItem = (arr) => {
     if((arr.length%2) === 0){
         return (arr[(arr.length/2)-1]+arr[(arr.length/2)])/2
