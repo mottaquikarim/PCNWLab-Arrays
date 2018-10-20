@@ -30,6 +30,7 @@ console.log(getRange([1,2,3,4,5], 3, 5));
 console.log(getRange([1,2,3,4,5], 5, 5));
 console.log(getRange([1,2,3,4,5], 3, 100));
 console.log(getRange([1,2,3,4,5], 6, 1));
+console.log("----------------------------");
 /* 2
     @func insertIntoMiddle
     @param {array} arr1
@@ -44,12 +45,11 @@ console.log(getRange([1,2,3,4,5], 6, 1));
 */
 const insertIntoMiddle = (arr1,arr2) => {
    let firstArr = arr1.slice(0,Math.ceil(arr1.length/2));
-   let secondArr = arr2.slice(0,Math.ceil(arr2.length/2));
-   let combineArr1 = firstArr.concat(arr2);
-   let combineArr2 = combineArr1.concat(secondArr)
-   return combineArr2
+   let secondArr = arr1.slice(Math.ceil(arr1.length/2),arr1.length);
+   return firstArr.concat(arr2).concat(secondArr)
 }
 console.log(insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']));
+console.log("----------------------------");
 
 
 /* 3
@@ -79,6 +79,7 @@ const reverseArr1 = str => {
    
 }
 console.log(reverseArr1([1,2,3,4,5]));
+console.log("----------------------------");
 /* 4
     @func reversedRangeMasher
     @param {array} arr1
@@ -96,11 +97,14 @@ console.log(reverseArr1([1,2,3,4,5]));
 
 */
 const reversedRangeMasher = (arr1,arr2,min,max) => {
-        const firstArray = arr1.slice(0,Math.ceil(arr1.length/2));
-        const secondArray = arr2.reverse();
-        const firstReversed = firstArray.reverse([0]);
-
-        return ` ${firstArray} ${secondArray} ${firstReversed}`;
+   
+   let firstArr = arr1.slice(0,Math.ceil(arr1.length/2));
+   let secondArr = arr1.slice(Math.ceil(arr1.length/2));
+   let firstArr1 = firstArr.slice(min-1,max)
+   let arrayReversed = arr2.toString().split("").reverse().join('');
+    return firstArr1.concat(arrayReversed).concat(secondArr);
+       
    }
-console.log(reversedRangeMasher([1,2,3,4,5], ['cat', 'dog'], 3, 5));
-
+console.log(reversedRangeMasher([1,2,3,4,5], ['cat', 'dog'], 3, 5)); // [3, 4, 'god', 'tac', 5]
+console.log(reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5)); // [1, 2, 3, 'dlrow', 'olleh', 4, 5]
+console.log("----------------------------");
