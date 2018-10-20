@@ -17,8 +17,14 @@
     @example - getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range
 
 */
-
-
+const getRange = (arr1,min,max) => {
+    arr1.sort();
+    if (arr1.includes(min) !== true || arr1.includes(max) !== true) return 'Error: Out of range!'
+    let a = arr1.indexOf(min);
+    let b = arr1.indexOf(max + 1);
+    return arr1.slice(a,b);
+}
+console.log(getRange([1,2,3,4,5,6,7,8],2,6))
 
 
 /* 2
