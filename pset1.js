@@ -6,6 +6,11 @@
     @desc - given two arrays return the longest array
     @example - longestArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4]
 */
+const longestArr = (arr1, arr2) => arr1.length > arr2.length ? arr1 : arr2;
+let arr1 = [1,2,3]
+let arr2 = [4,5,6,7]
+console.log(longestArr(arr1,arr2))
+
 
 /* 2
     @func arrSwapIndex
@@ -17,6 +22,15 @@
     @example - arrSwapIndex([1,2,3,4]);  // [4,2,3,1]
 */
 
+const arrSwapIndex = arr => {
+    let p0 = arr[0]
+    let pLast = arr[arr.length -1]
+    arr[0] = pLast
+    arr[arr.length -1] = p0
+    return arr
+}
+let arr = [1,2,3,4]
+console.log(arrSwapIndex(arr))
 
 /* 3
     @func arrSwap
@@ -27,7 +41,14 @@
             otherwise return string
     @example - arrSwap([1,2,3,4]);  // [4,2,3,1]
 */
-
+const arrSwap = arr => {
+let p0 = arr.shift();
+let pLast = arr.pop();
+arr.unshift(pLast);
+arr.push(p0);
+return arr;
+}
+console.log(arrSwap([1,2,3,4,5,6]))
 
 /* 4
     @func combineArr
@@ -38,6 +59,8 @@
             all the items from both arrays 
     @example - combineArr([1,2,3,4], ['dog', 'cat']);  // [1, 2, 3, 4, 'dog', 'cat']
 */
+const combineArr = (arr1,arr2) => arr1.concat(arr2);
+console.log(combineArr([1,2,3],[4,5,6]))
 
 
 /* 5
@@ -48,7 +71,13 @@
             item from the array.
     @example - getRandomItem([1,2,3,4,5,6,7,8]);  // 7
 */
-
+function generateRandomNumberFromRange( s, e ) {
+    const random = s + Math.floor( Math.random() * (e-s+1) );
+    return random;
+}
+const getRandomItem = arr1 => arr1[generateRandomNumberFromRange(0,(arr1.length -1))]
+let array1 = ['dog','cat','bird','squirrel','rabbit','frog'];
+console.log(getRandomItem(array1))
 
 /* 6
     @func getMiddleItem
@@ -61,7 +90,12 @@
     @example - getMiddleItem([1,2,3,4,5,6,7,8]);  // 4
 */
 
-
+const getMiddleItem = arr => {
+    if (arr.length % 2 === 0) return arr[(arr.length/2) - 1];
+    return arr[Math.floor((arr.length/2))];
+    }
+let arrrr = [1,2,3,4,5,6,7,8,9];
+console.log(getMiddleItem(arrrr));
 
 /* 7
     @func getMedianItem
@@ -74,5 +108,9 @@
     @example - getMedianItem([1,2,3,4,5,6,7,8]);  // 4.5
 */
 
-
-
+const getMedianItem = arr => {
+    if (arr.length % 2 === 0) return arr[(arr.length/2)-1];
+    return ((arr[Math.floor(arr.length/2)] + arr[Math.floor(arr.length/2 -1)]) /2)
+}
+let arrrr1 = [1,2,3,4,5,6,7,8,9];
+console.log(getMedianItem(arrrr1));
