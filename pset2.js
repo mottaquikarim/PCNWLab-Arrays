@@ -39,8 +39,14 @@ console.log(getRange([1,2,3,4,5,6,7,8],2,6))
     @example - insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5]
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
-
-
+const insertIntoMiddle = (arr1,arr2) => {
+    let arr1FirstHalf = arr1.slice(0,Math.floor(arr1.length/2));
+    let arr1SecondHalf = arr1.slice(Math.floor(arr1.length/2));
+    let nArray = arr1FirstHalf.concat(arr2);
+    nArray = nArray.concat(arr1SecondHalf);
+    return nArray;
+}
+console.log(insertIntoMiddle([1,2,3,4,5,6,7,8,9],['dog','cat','bird']))
 
 
 /* 3
