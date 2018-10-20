@@ -60,7 +60,7 @@ console.log(insertIntoMiddle([1,2,3,4,5,6,7,8,9],['dog','cat','bird']))
 
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
-const reverseArr = arr => arr.map((current, index, arr) => arr[arr.length - 1 - index])
+const reverseArr = arr1 => arr1.map((current, index, arr1) => arr1[arr1.length - 1 - index])
  console.log(reverseArr([1, 2, 3, 4, 5])); 
 
 
@@ -80,6 +80,10 @@ const reverseArr = arr => arr.map((current, index, arr) => arr[arr.length - 1 - 
     @example - reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5);  // [1, 2, 3, 'dlrow', 'olleh', 4, 5]
 
 */
-
-
-
+const reversedRangeMasher = (arr1,arr2,min,max) => {
+    let arr1Range = getRange(arr1,min,max);
+    let arr2Reversed = reverseArr(arr2)
+    arr2Backwards = arr2Reversed.map((current,index) => arr2Reversed[index].split('').reverse().join(''))
+    return insertIntoMiddle(arr1Range,arr2Backwards);  
+}
+console.log(reversedRangeMasher([1,2,3,4,5],['cat','dog'],1,3))
