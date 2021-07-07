@@ -17,8 +17,14 @@
     @example - getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range
 
 */
-
-
+const getRange = (arr1,min,max) => {
+    arr1.sort();
+    if (arr1.includes(min) !== true || arr1.includes(max) !== true) return 'Error: Out of range!'
+    let a = arr1.indexOf(min);
+    let b = arr1.indexOf(max + 1);
+    return arr1.slice(a,b);
+}
+console.log(getRange([1,2,3,4,5,6,7,8],2,6))
 
 
 /* 2
@@ -33,8 +39,14 @@
     @example - insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5]
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
-
-
+const insertIntoMiddle = (arr1,arr2) => {
+    let arr1FirstHalf = arr1.slice(0,Math.floor(arr1.length/2));
+    let arr1SecondHalf = arr1.slice(Math.floor(arr1.length/2));
+    let nArray = arr1FirstHalf.concat(arr2);
+    nArray = nArray.concat(arr1SecondHalf);
+    return nArray;
+}
+console.log(insertIntoMiddle([1,2,3,4,5,6,7,8,9],['dog','cat','bird']))
 
 
 /* 3
@@ -48,8 +60,8 @@
 
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
-
-
+const reverseArr = arr1 => arr1.map((current, index, arr1) => arr1[arr1.length - 1 - index])
+ console.log(reverseArr([1, 2, 3, 4, 5])); 
 
 
 /* 4
@@ -68,6 +80,10 @@
     @example - reversedRangeMasher([1,2,3,4,5], ['hello', 'world'], 1, 5);  // [1, 2, 3, 'dlrow', 'olleh', 4, 5]
 
 */
-
-
-
+const reversedRangeMasher = (arr1,arr2,min,max) => {
+    let arr1Range = getRange(arr1,min,max);
+    let arr2Reversed = reverseArr(arr2)
+    arr2Backwards = arr2Reversed.map((current,index) => arr2Reversed[index].split('').reverse().join(''))
+    return insertIntoMiddle(arr1Range,arr2Backwards);  
+}
+console.log(reversedRangeMasher([1,2,3,4,5],['cat','dog'],1,3))
