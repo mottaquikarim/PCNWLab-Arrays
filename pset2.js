@@ -18,8 +18,17 @@
 
 */
 
+const getRange = (arr1, min, max) => {
+    if(min >= arr1.length || max > arr1.length) return 'Error: Out of Range';       
+    return arr1.slice(min - 1, max)
+}
 
-
+console.log('getRange of [1,2,3,4,5] with a range of 1 to 3 returns: [1,2,3]; ', getRange([1,2,3,4,5], 1, 3));
+console.log('getRange([1,2,3,4,5], 3, 5) should return [3,4,5]; ', getRange([1,2,3,4,5], 3, 5));
+console.log('getRange([1,2,3,4,5], 5, 5]);  // Error: Out of Range; ', getRange([1,2,3,4,5], 5, 5) === 'Error: Out of Range');
+console.log('getRange([1,2,3,4,5], 3, 100]);  // Error: Out of Range; ', getRange([1,2,3,4,5], 3, 100) === 'Error: Out of Range');
+console.log('getRange([1,2,3,4,5], 6, 1]);  // Error: Out of Range; ', getRange([1,2,3,4,5], 6, 1) === 'Error: Out of Range');
+console.log('*******************************************************************')
 
 /* 2
     @func insertIntoMiddle
@@ -34,8 +43,23 @@
     @example - insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  // [1, 2, 3, 'cat', 'dog, 4, 5, 6]
 */
 
+const insertIntoMiddle = (arr1, arr2) => {
+    let  firstHalfArr = arr1.slice(0, Math.ceil((arr1.length / 2)));
+    let secondHalfArr = arr1.slice(arr1.length / 2, arr1.length);
+    if(arr1.length % 2 !== 0){
+        secondHalfArr = arr1.slice(Math.floor((arr1.length / 2) + 1), arr1.length);
+        return firstHalfArr.concat(arr2).concat(secondHalfArr);
+    }
+    
+    return firstHalfArr.concat(arr2).concat(secondHalfArr);
+}
 
-
+console.log(`insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']);  
+// [1, 2, 3, 'cat', 'dog, 4, 5]; `, insertIntoMiddle([1,2,3,4,5], ['cat', 'dog']));
+console.log(`insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']);  
+// [1, 2, 3, 'cat', 'dog, 4, 5, 6]; `, insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog']));
+console.log('insertIntoMiddle returns an array, ', Array.isArray(insertIntoMiddle([1,2,3,4,5,6], ['cat', 'dog'])));
+console.log('*******************************************************************')
 
 /* 3
     @func reverseArr
@@ -49,7 +73,19 @@
     @example - reverseArr([1,2,3,4,5]);  // [5,4,3,2,1]
 */
 
+const movingIdx = toBeReversed => {
+    if(!toBeReversed.length) return toBeReversed;
+    return movingIdx(toBeReversed.slice(1)).concat(toBeReversed[0]);
+}
 
+const reverseArr = arr => {
+    return movingIdx(arr);
+}
+
+console.log(`reverseArr([1,2,3,4,5]) returns [5,4,3,2,1]): `, reverseArr([1,2,3,4,5]));
+console.log(`reverseArr([11, 12, 13, 14, 15, 16]) 
+returns [16, 15, 14, 13, 12, 11]: `, reverseArr([11, 12, 13, 14, 15, 16]));
+console.log('reverseArr returns an array, ', Array.isArray(reverseArr([1,2,3,4,5])));
 
 
 /* 4
